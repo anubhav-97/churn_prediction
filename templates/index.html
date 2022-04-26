@@ -1,0 +1,207 @@
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<!-- AJAX -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Lobster&family=Oxygen&display=swap" rel="stylesheet">  
+<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='logo.png')}}">
+
+<head>
+    <title>Churn Predcition</title>
+    <!-- <link rel="shortcut icon" href="logo.png"> -->
+</head>
+ 
+<meta charset="utf-8">
+<meta name="author" content="Anubhav Sharma">
+<meta name="keywords" content="ML, Machine Learning, Churn, Customer churn, Random Forest, Logistic regression">
+<meta name="description" content="Machine Learning Webapp to predict churn using classification.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<style type="text/css">
+    body {
+        background-color: blueviolet;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed;
+        color: rgb(0, 0, 0);
+    }
+    
+    .header {
+        font-family: 'Trebuchet', sans-serif;
+        text-shadow: 0 5px 15px black;
+        margin-top: 20px;
+    }
+    
+    .card {
+        background: rgba(16, 10, 68, 0.856);
+        margin-top: 15px!important;
+        font-family: 'Oxygen', sans-serif;
+        border-radius: 5px;
+        box-shadow: 0 7px 25px black;
+        color: rgba(255, 255, 255, 0.925);
+    }
+    
+    .footer {
+        background: rgba(10, 10, 10, 0.9);
+    }
+    
+    
+    .footer {
+        position: relative;
+        margin-top: 30px!important;
+        margin-bottom: 10px!important;
+    }
+    
+    .text-coffee {
+        color: #BB5400;
+    }
+    
+    .links a {
+        color: white!important
+    }
+    
+    .link-button {
+        padding: 10px;
+        border-radius: 20%;
+        font-size: 20px;
+    }
+    
+    .badge {
+        color: white;
+    }
+    
+    input,
+    select {
+        width: 200px;
+        color: black;
+    }
+
+    img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+</style>
+
+<div class="header text-center">
+    <h1>Churn Prediction <br><span>Using Machine Learning</span></h1>
+</div>
+<div class="card w-50 m-auto">
+    
+<div class="card-body text-center">
+    <h4 class="card-title">Customer Details<br>
+             </h4>
+    <form method="post"  action="/predict">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <label for="country">Country: 
+                    <select name="country" class="form-input align-center">
+                        
+                        <option value="none">--- Select Country ---</option>
+
+                        <option value="France">France</option>
+                        
+                        <option value="Germany">Germany</option>
+                        
+                        <option value="Spain">Spain</option>
+                        
+                    </select>
+                </label>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="gender">Gender: 
+                    <select name="gender" class="form-input align-center">
+
+                        <option value="none">--- Select Gender ---</option>
+                        
+                        <option value="Female">Female</option>
+                        
+                        <option value="Male">Male</option>
+
+                    </select>
+                </label>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="member">Active Member: 
+                    <select name="member" class="form-input align-center">
+
+                        <option value="none">--- Yes or No ---</option>
+                        
+                        <option value="1">Yes</option>
+                        
+                        <option value="0">No</option>
+
+                    </select>
+                </label>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="crcard">Holds Credit Card: 
+                    <select name="crcard" class="form-input align-center">
+
+                        <option value="none">--- Yes or No ---</option>
+                        
+                        <option value="1">Yes</option>
+                        
+                        <option value="0">No</option>
+
+                    </select>
+                </label>
+            </div>
+
+
+            <div class="col-lg-6 col-sm-12">
+                <label for="CreditScore">Credit Score
+                    <input required type="number" class="form-input align-center" name="CreditScore" min="1">
+                </label>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="age">Age of Customer
+                    <input required type="number" class="form-input align-center" name="age" min="1" max="100">
+                </label>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="tenure">Tenure of Account
+                    <input required type="number" class="form-input align-center" name="tenure">
+                </label>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="balance">Account Balance
+                    <input required type="number" name="balance" class="form-input align-center" min="0">
+                </label>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <label for="estimatedsalary">Estimated Salary
+                    <input required type="number" name="estimatedsalary" min="0" class="form-input align-center">
+                </label>
+            </div>
+
+            <div class="col-lg-6 col-sm-12">
+                <label for="numofproducts">Number of Products
+                    <input required type="number" name="numofproducts" min="0" class="form-input align-center">
+                </label>
+            </div>
+
+            <div class="col-12">
+                <input required type="submit" class="btn btn-success" value="Predict">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</div>
+
+<div class="card footer w-300 m-auto">
+    <div class="flex-row header text-center text-justify">
+    Created By Anubhav Sharma, Ishant, Abhishek, Raksha, Aekansh, Madhulika, Rachit
+</div>
+
+</div>
+ 

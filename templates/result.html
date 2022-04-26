@@ -1,0 +1,128 @@
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<!-- AJAX -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Lobster&family=Oxygen&display=swap" rel="stylesheet">  
+<link rel="icon" type="image/x-icon" href="logo.png">
+
+<head>
+    <title>Churn Prediction</title>
+    <link rel="shortcut icon" href="logo.png">
+</head>
+ 
+<meta charset="utf-8">
+<meta name="author" content="Anubhav Sharma">
+<meta name="keywords" content="ML, Machine Learning, Churn, Customer churn, Random Forest, Logistic regression">
+<meta name="description" content="Machine Learning Webapp to predict churn using classification.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<style type="text/css">
+    body {
+        background-color: blueviolet;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed;
+        color: rgb(0, 0, 0);
+    }
+    
+    .header {
+        font-family: 'Trebuchet', sans-serif;
+        text-shadow: 0 5px 15px black;
+        margin-top: 20px;
+    }
+    
+    .card {
+        background: rgba(16, 10, 68, 0.856);
+        margin-top: 15px!important;
+        font-family: 'Oxygen', sans-serif;
+        border-radius: 5px;
+        box-shadow: 0 7px 25px black;
+        color: rgba(255, 255, 255, 0.925);
+    }
+    
+    .footer {
+        background: rgba(10, 10, 10, 0.9);
+    }
+    
+    
+    .footer {
+        position: relative;
+        margin-top: 30px!important;
+        margin-bottom: 10px!important;
+    }
+    
+    .text-coffee {
+        color: #BB5400;
+    }
+    
+    .links a {
+        color: white!important
+    }
+    
+    .link-button {
+        padding: 10px;
+        border-radius: 20%;
+        font-size: 20px;
+    }
+    
+    .badge {
+        color: white;
+    }
+    
+    input,
+    select {
+        width: 200px;
+        color: black;
+    }
+
+    img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    * {
+    box-sizing: border-box;
+    }
+
+    .row {
+    display: flex;
+    }
+
+    /* Create three equal columns that sits next to each other */
+    .column {
+    flex: 33.33%;
+    padding: 5px;
+    }
+</style>
+
+<div class="header text-center">
+    <h1>Churn Prediction <br><span>Using Machine Learning</span></h1>
+</div>
+<div class="card w-50 h-50 m-auto">
+    
+<div class="card-body text-center">
+    <h4 class="card-title">Prediction</h4>
+    <!-- Result -->
+        <div class="results">
+            <p class='result-p padding: 10px'>Customer will {{ lower_limit }}</p>
+        </div>
+</div>
+
+
+</div>
+
+<div class="card footer w-300 m-auto">
+    <div class="flex-row header text-center text-justify">
+    Created By Anubhav, Ishant, Abhishek, Raksha, Aekansh, Madhulika, Rachit
+</div>
+
+</div>
+ 
