@@ -1,0 +1,2 @@
+heroku ps -a app
+web: gunicon app:app
